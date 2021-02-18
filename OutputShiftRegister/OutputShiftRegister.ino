@@ -42,7 +42,7 @@
  *
  * @section author_outputshiftregister_ino Author(s)
  * - Created by John Woolsey on 01/20/2021.
- * - Modified by John Woolsey on 02/04/2021.
+ * - Modified by John Woolsey on 02/10/2021.
  *
  * Copyright (c) 2021 Woolsey Workshop.  All rights reserved.
  */
@@ -108,8 +108,8 @@ void osrWriteRegister(uint8_t outputs) {
  *
  * Values other than LOW or 0 and HIGH or 1 are ignored.
  *
- * Increase the size of the outputs variable type (uint8_t) if daisy chaining
- * multiple shift registers together.
+ * If daisy chaining multiple shift registers together, increase the size of the
+ * outputs variable type (uint8_t).
  *
  * @param pin    The output pin to set, 0-7 for a single 8-bit shift register.
  * @param value  The value to set the pin to, LOW or HIGH.
@@ -178,7 +178,7 @@ void changeOutputsWithDigitalWrite() {
  * Example code for setting all shift register outputs with each write using
  * binary values (1 = HIGH, 0 = LOW).
  *
- * This approach produces the most concise code, but does not portray the
+ * This approach produces the most concise code, but does not indicate the
  * meaning of each of the outputs.
  */
 void changeOutputsWithBinaryValues() {
@@ -209,8 +209,8 @@ void changeOutputsWithBinaryValues() {
  *
  * Only include named outputs to set HIGH, everything else will be set LOW.
  *
- * Increase the size of the constants' type (uint8_t) if daisy chaining
- * multiple shift registers together.
+ * If daisy chaining multiple shift registers together, increase the size of the
+ * type (uint8_t) for the constants.
  */
 void changeOutputsWithDefinedNames() {
    // Output pin definitions
@@ -249,8 +249,8 @@ void changeOutputsWithDefinedNames() {
  * shift register writes, but requires a variable to keep track of output values
  * and can produce lengthy code when changing many outputs simultaneously.
  *
- * Increase the size of the outputs variable type (uint8_t) if daisy chaining
- * multiple shift registers together.
+ * If daisy chaining multiple shift registers together, increase the size of the
+ * outputs variable type (uint8_t).
  */
 void changeOutputsWithBitOperations() {
    // Output pin definitions
@@ -307,8 +307,9 @@ void changeOutputsWithBitOperations() {
  * Example code that continuously cycles through the LEDs (end to end) using
  * simple bit operations.
  *
- * Increase the size of the outputs variable type (uint8_t) and adjust the
- * for loops if daisy chaining multiple shift registers together.
+ * If daisy chaining multiple shift registers together, increase the size of the
+ * outputs variable type (uint8_t) and adjust the number of iterations of the
+ * for loops.
  */
 void cycleLEDs() {
    uint8_t outputs = 0;  // holds shift register output values
