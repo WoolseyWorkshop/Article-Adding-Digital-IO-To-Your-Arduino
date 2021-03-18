@@ -21,7 +21,11 @@ An Arduino sketch that interfaces a 74HC165 parallel-in serial-out shift registe
 ### [Arduino_74HC165 Schematic](Arduino_74HC165)
 A KiCad schematic for a 74HC165 parallel-in serial-out shift register IC, with an 8-position dip switch attached to the inputs, connected to an Arduino Uno.
 
-## *Part 3 - The MCP23017*
-Teaches you how to add both digital inputs and outputs using the MCP23017 16-bit I/O expander IC.
+## [Part 3 - The MCP23017](https://www.woolseyworkshop.com/2021/03/18/adding-digital-io-to-your-arduino-part-3-the-mcp23017/)
+Teaches you how to add both digital inputs and outputs using the MCP23017 16-Bit I2C I/O Expander With Serial Interface IC.
 
-Available soon.
+### [PortExpander Sketch](PortExpander)
+An Arduino sketch that interfaces an MCP23017 16-Bit I2C I/O Expander With Serial Interface IC to add digital inputs and outputs to an Arduino board.
+
+### [Arduino_MCP23017 Schematic](Arduino_MCP23017)
+A KiCad schematic for an MCP23017 16-Bit I2C I/O Expander With Serial Interface IC, with an 8-position dip switch and 8 LEDs attached to its GPIO pins, connected to an Arduino Uno.
