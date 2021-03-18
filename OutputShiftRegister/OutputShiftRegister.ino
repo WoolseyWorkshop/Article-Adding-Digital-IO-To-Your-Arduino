@@ -42,7 +42,7 @@
  *
  * @section author_outputshiftregister_ino Author(s)
  * - Created by John Woolsey on 01/20/2021.
- * - Modified by John Woolsey on 02/10/2021.
+ * - Modified by John Woolsey on 02/27/2021.
  *
  * Copyright (c) 2021 Woolsey Workshop.  All rights reserved.
  */
@@ -314,19 +314,19 @@ void changeOutputsWithBitOperations() {
 void cycleLEDs() {
    uint8_t outputs = 0;  // holds shift register output values
 
-   // Cycle through individual LEDs from LED0 to LED7
-   for (int i = 0; i < 8; i++) {
+   // Cycle through individual LEDs from LED0 to LED6
+   for (uint8_t i = 0; i < 7; i++) {
       bitSet(outputs, i);
       osrWriteRegister(outputs);
       bitClear(outputs, i);
-      if (i < 7) delay(100);
+      delay(100);
    }
 
-   // Cycle through individual LEDs from LED7 to LED0
-   for (int i = 7; i >= 0; i--) {
+   // Cycle through individual LEDs from LED7 to LED1
+   for (uint8_t i = 7; i > 0; i--) {
       bitSet(outputs, i);
       osrWriteRegister(outputs);
       bitClear(outputs, i);
-      if (i > 0) delay(100);
+      delay(100);
    }
 }
