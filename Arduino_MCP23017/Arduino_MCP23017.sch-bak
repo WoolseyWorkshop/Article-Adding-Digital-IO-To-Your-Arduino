@@ -5,8 +5,8 @@ $Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
 Title "Arduino Uno & MCP23017"
-Date "2021-03-25"
-Rev "1.1"
+Date "2021-02-22"
+Rev "1.0"
 Comp "Woolsey Workshop"
 Comment1 "By John Woolsey"
 Comment2 ""
@@ -663,24 +663,4 @@ Wire Wire Line
 	4350 2050 4350 3150
 Wire Wire Line
 	3050 3150 4350 3150
-$Comp
-L Device:C C1
-U 1 1 605F7F02
-P 4100 1900
-F 0 "C1" H 4215 1946 50  0000 L CNN
-F 1 "0.1u" H 4215 1855 50  0000 L CNN
-F 2 "" H 4138 1750 50  0001 C CNN
-F 3 "~" H 4100 1900 50  0001 C CNN
-	1    4100 1900
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4450 1150 4100 1150
-Wire Wire Line
-	4100 1150 4100 1750
-Wire Wire Line
-	4100 2050 4100 3350
-Wire Wire Line
-	4100 3350 4450 3350
-Connection ~ 4450 3350
 $EndSCHEMATC
