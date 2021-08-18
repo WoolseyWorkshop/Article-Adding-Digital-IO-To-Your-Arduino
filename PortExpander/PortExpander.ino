@@ -42,7 +42,7 @@
  *
  * @section author_portexpander_ino Author(s)
  * - Created by John Woolsey on 02/23/2021.
- * - Modified by John Woolsey on 03/18/2021.
+ * - Modified by John Woolsey on 08/17/2021.
  *
  * Copyright (c) 2021 Woolsey Workshop.  All rights reserved.
  */
@@ -57,7 +57,7 @@
 
 
 // Pin Mapping
-const int MCP23017_INTB = 2;  ///< The pin connected to the MCP23017 INTB (19) pin.
+const uint8_t MCP23017_INTB = 2;  ///< The pin connected to the MCP23017 INTB (19) pin.
 
 
 // MCP23017 I/O Pin Definitions
@@ -112,10 +112,10 @@ void setup() {
  */
 void loop() {
    // Each function provides a different approach for accessing I/O pins
-   // readAndWriteWithDigitalReadAndDigitalWrite();
+   readAndWriteWithDigitalReadAndDigitalWrite();
    // portCopy();
    // readAndWritePortOnInputChange();
-   readAndWritePinOnInputChange();
+   // readAndWritePinOnInputChange();
 }
 
 
