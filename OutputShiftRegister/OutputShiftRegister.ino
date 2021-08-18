@@ -13,8 +13,8 @@
  *   - 8 LEDs are connected to the shift register's outputs (QA - QH).
  *
  * @section notes_main Notes
- * - Provides examples for multiple approaches to implementing how to visualize
- *   and send digital output data to the 74HC595 shift register.
+ * - Provides examples for multiple approaches of visualizing and sending
+ *   digital output data to the 74HC595 shift register.
  *
  * Copyright (c) 2021 Woolsey Workshop.  All rights reserved.
  */
@@ -42,16 +42,16 @@
  *
  * @section author_outputshiftregister_ino Author(s)
  * - Created by John Woolsey on 01/20/2021.
- * - Modified by John Woolsey on 02/27/2021.
+ * - Modified by John Woolsey on 08/17/2021.
  *
  * Copyright (c) 2021 Woolsey Workshop.  All rights reserved.
  */
 
 
 // Pin Mapping
-const int OSRDataPin = 2;   ///< The pin connected to the 74HC595 SER (14) pin.
-const int OSRLatchPin = 3;  ///< The pin connected to the 74HC595 RCLK (12) pin.
-const int OSRClockPin = 4;  ///< The pin connected to the 74HC595 SRCLK (11) pin.
+const uint8_t OSRDataPin = 2;   ///< The pin connected to the 74HC595 SER (14) pin.
+const uint8_t OSRLatchPin = 3;  ///< The pin connected to the 74HC595 RCLK (12) pin.
+const uint8_t OSRClockPin = 4;  ///< The pin connected to the 74HC595 SRCLK (11) pin.
 
 
 /**
@@ -74,9 +74,9 @@ void setup() {
 void loop() {
    // Each function provides a different approach for setting outputs
    changeOutputsWithDigitalWrite();
-   changeOutputsWithBinaryValues();
-   changeOutputsWithDefinedNames();
-   changeOutputsWithBitOperations();
+   // changeOutputsWithBinaryValues();
+   // changeOutputsWithDefinedNames();
+   // changeOutputsWithBitOperations();
    // cycleLEDs();
 }
 
@@ -180,6 +180,9 @@ void changeOutputsWithDigitalWrite() {
  *
  * This approach produces the most concise code, but does not indicate the
  * meaning of each of the outputs.
+ *
+ * If daisy chaining multiple shift registers together, increase the number of
+ * bits in the binary number.
  */
 void changeOutputsWithBinaryValues() {
    // Set individual LEDs
