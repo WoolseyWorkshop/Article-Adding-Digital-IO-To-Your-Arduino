@@ -14,8 +14,8 @@
  *     register's inputs (A - H).
  *
  * @section notes_main Notes
- * - Provides examples for multiple approaches to implementing how to visualize
- *   and read digital input data from the 74HC165 shift register.
+ * - Provides examples for multiple approaches of visualizing and reading
+ *   digital input data from the 74HC165 shift register.
  * - Use the Serial Monitor to view output.
  *
  * Copyright (c) 2021 Woolsey Workshop.  All rights reserved.
@@ -44,23 +44,21 @@
  *
  * @section author_inputshiftregister_ino Author(s)
  * - Created by John Woolsey on 01/31/2021.
- * - Modified by John Woolsey on 02/12/2021.
+ * - Modified by John Woolsey on 08/18/2021.
  *
  * Copyright (c) 2021 Woolsey Workshop.  All rights reserved.
  */
 
 
-// Defines
-#define SAMPLE_RATE 0.2  ///< The sensor sampling rate in Hz.
-
-
 // Pin Mapping
-const int ISRDataPin = 2;   ///< The pin connected to the 74HC165 QH (9) pin.
-const int ISRLatchPin = 3;  ///< The pin connected to the 74HC165 SH/LD (1) pin.
-const int ISRClockPin = 4;  ///< The pin connected to the 74HC165 CLK (2) pin.
+const uint8_t ISRDataPin = 2;   ///< The pin connected to the 74HC165 QH (9) pin.
+const uint8_t ISRLatchPin = 3;  ///< The pin connected to the 74HC165 SH/LD (1) pin.
+const uint8_t ISRClockPin = 4;  ///< The pin connected to the 74HC165 CLK (2) pin.
 
 
 // Global Constants
+const unsigned long SamplePeriod = 5000;  ///< The sampling period in milliseconds.
+
 const uint8_t InputA = 0;  ///< The bit position for the 74HC165 A input.
 const uint8_t InputB = 1;  ///< The bit position for the 74HC165 B input.
 const uint8_t InputC = 2;  ///< The bit position for the 74HC165 C input.
@@ -93,7 +91,7 @@ void loop() {
    // Read and print inputs at the specified sampling rate
    static unsigned long previousTime = 0;
    unsigned long currentTime = millis();
-   if (currentTime - previousTime >= 1000/SAMPLE_RATE) {
+   if (currentTime - previousTime >= SamplePeriod) {
       readInputsWithDigitalRead();
       // readInputsWithBinaryValues();
       // readInputsWithDefinedNamesAndBitOperations();
@@ -222,7 +220,7 @@ void readAndPrintInputsOnChange() {
    uint8_t currentInputs = isrReadRegister();  // read all inputs from shift register
    if (currentInputs != previousInputs) {  // print values only if they changed
       Serial.print("Inputs: 0b");  // print all inputs represented as a full byte
-      for (int i = 7; i >= 0; i--) {
+      for (int8_t i = 7; i >= 0; i--) {
          Serial.print(bitRead(currentInputs, i));  // print value for each bit
       }
       Serial.println();
